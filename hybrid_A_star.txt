@@ -1,0 +1,14 @@
+    Initialize the start and goal nodes, as well as the grid map or occupancy map.
+    Set up the discrete motion model, which defines the feasible motion primitives or actions that the robot can take, such as moving forward or turning left or right.
+    Define the continuous motion model, which converts the discrete motion primitives into actual trajectories in the continuous space.
+    Implement the heuristic function, which estimates the cost-to-go from each node to the goal, using a suitable metric such as Euclidean distance or Manhattan distance.
+    Define the collision detection function, which checks whether a given trajectory intersects with any obstacles in the map.
+    Set up the open and closed lists for the A* search, which maintain the set of nodes to be explored and the set of nodes that have already been visited, respectively.
+    Initialize the open list with the start node and its estimated cost-to-go.
+    While the open list is not empty, do the following:
+    a. Pop the node with the lowest estimated cost-to-go from the open list.
+    b. If the node is the goal node, return the optimal path.
+    c. Generate the successors of the node by applying the feasible motion primitives and converting them into trajectories using the continuous motion model.
+    d. For each successor, compute its cost-to-come by adding the cost of the motion primitive to the cost of the parent node, and compute its estimated cost-to-go using the heuristic function.
+    e. If the successor is not in the closed list or its new cost-to-come is lower than its previous cost-to-come, update its values and add it to the open list.
+    If the goal node is not reached, return failure or a suboptimal path.

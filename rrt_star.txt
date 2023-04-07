@@ -1,0 +1,31 @@
+Here is an outline of the process:
+
+    Define the Node class to represent a point in the configuration space.
+    Define the RRTStar class to implement the algorithm.
+    Initialize the start and goal nodes, the obstacle list, the random sampling range, and other parameters.
+    Implement the get_random_node() method to generate a random point in the configuration space.
+    Implement the get_nearest_node_index() method to find the node in the tree closest to the random point.
+    Implement the steer() method to extend the tree towards the random point.
+    Implement the check_collision() method to determine if a node is in collision with the obstacles.
+    Implement the find_near_nodes() method to find the nodes near the new node.
+    Implement the choose_parent() method to select the best parent for the new node.
+    Implement the rewire() method to update the cost and parent of the nodes near the new node.
+    Implement the planning() method to run the RRT* algorithm and return the optimal path.
+    Test the RRT* algorithm using a sample problem and visualize the result.
+
+Here's a pseudocode for the RRT* algorithm:
+
+    Initialize the tree T with a single node at the starting position.
+    For i = 1 to maximum number of iterations:
+    a. Generate a random sample qrand in the search space.
+    b. Find the nearest node qnear in the tree to qrand.
+    c. Extend the tree from qnear towards qrand by a distance delta, to get a new node qnew.
+    d. If qnew is not in collision with any obstacles:
+    i. Find the nearby nodes Nqnew within a certain radius R.
+    ii. For each node n in Nqnew, check if it is a better parent for qnew than its current parent, based on the cost of the path to reach qnew through n.
+    iii. If a better parent is found, rewire the tree with qnew and its new parent.
+    iv. Add qnew to the tree T.
+    e. If the goal region is within a certain distance from qnew, check if a new solution has been found.
+    Select the best path from the tree T that reaches the goal region, based on the total cost of the path.
+
+Note: The cost of a path is the sum of the edge costs from the starting node to the current node. The edge cost can be the Euclidean distance between two nodes, for example.
